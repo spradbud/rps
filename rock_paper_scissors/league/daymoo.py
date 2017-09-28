@@ -13,16 +13,6 @@ class Player(BasePlayer):
 
     def play(self):
 
-        if len(self.their_history) > 2:
-            if self.their_history[-1] == self.their_history[-2] \
-                    and self.their_history[-2] == self.their_history[-3]:
-                if self.their_history[-1] == SCISSORS:
-                    return random.choice([PAPER, ROCK])
-                elif self.their_history[-1] == PAPER:
-                    return random.choice([SCISSORS, ROCK])
-                else:
-                    return random.choice([PAPER, SCISSORS])
-
         if len(self.their_history) > 1:
             if self.their_history[-1] == self.their_history[-2]:
                 if self.their_history[-1] == SCISSORS:
@@ -47,7 +37,7 @@ class Player(BasePlayer):
                 return PAPER
 
         return random.choice(
-            [PAPER, SCISSORS, ROCK]
+            [SCISSORS, ROCK, PAPER]
         )
 
     def result(self, their_play):
